@@ -23,6 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Authors
 Route::get('/authors', [AuthorController::class, 'index']);
 Route::prefix('/authors')->group(function () {
+    Route::get('/{author}', [AuthorController::class, 'show']);
     Route::post('/store', [AuthorController::class, 'store']);
     Route::put('/{author}', [AuthorController::class, 'update']);
     Route::delete('/{author}', [AuthorController::class, 'destroy']);
@@ -32,6 +33,7 @@ Route::prefix('/authors')->group(function () {
 //Books
 Route::get('/books', [BookController::class, 'index']);
 Route::prefix('/books')->group(function () {
+    Route::get('/{book}', [BookController::class, 'show']);
     Route::post('/store', [BookController::class, 'store']);
     Route::put('/{book}', [BookController::class, 'update']);
     Route::delete('/{book}', [BookController::class, 'destroy']);
